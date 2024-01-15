@@ -7,11 +7,31 @@
 #include "Person.h"
 #include <string>
 #include <random>
+#include <cmath>
 
 using namespace std;
 // Function to generate a random number between 1 and 10
 int fillValues() {
     return std::rand() % 10 + 1;
+}
+
+int weighted_random() {
+    // weights for the numbers 0-10
+    std::vector<int> weights = { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 1 };
+
+    // random device
+    std::random_device rd;
+
+    // generator
+    std::default_random_engine generator(rd());
+
+    // distribution
+    std::discrete_distribution<int> distribution(weights.begin(), weights.end());
+
+    // generate a random number
+    int number = distribution(generator);
+
+    return number;
 }
 
 void fillNameArray(std::string nameArray[100]) {
@@ -57,11 +77,15 @@ std::string getRandomElement(std::string nameArray[100]) {
 int main() {
     // Initialize random seed
     std::srand(std::time(0));
+
+    
+
+
     std::string nameArray[100];
     fillNameArray(nameArray);
     std::string name = getRandomElement(nameArray);
     // Create a Person object
-    Person person(name, fillValues(), fillValues(), fillValues(), fillValues(), fillValues());
+    Person person(name, fillValues(), fillValues(), weighted_random(), fillValues(), fillValues());
 
     // Display the information
     //std::cout << "Name: " << person.getName() << std::endl;
@@ -71,9 +95,21 @@ int main() {
     //std::cout << "skep: " << person.getSkep() << std::endl;
     //std::cout << "finanSit: " << person.getFinanSit() << std::endl;
 
-    cout << person.getName() << " is an investigator to the church.";
+    cout << person.getName() << " is an investigator to the church." << endl;
+    if (person.getTimeSpent() > 0)
+        cout << "They have been having missionary visits for " << person.getTimeSpent() << " months.";
+    else
+        cout << "They have not yet met with the missionaries.";
+    if (person.getTimeSpent() >= 3) {
+        
 
 
+
+
+
+
+
+    }
 
 
     return 0;
