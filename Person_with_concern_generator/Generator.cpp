@@ -15,6 +15,20 @@ int fillValues() {
     return std::rand() % 10 + 1;
 }
 
+string familySituation(int fnum) {
+    string familyType[10] = {"as a single parent, after escaping a dangerous home situation, and the leaving of a spouse.", "as a single parent.","alone, and have been for many years.", "alone.", "with a spouse with some tension in the home.", "alone, but they are dating.", "married.", "happily married with no children.", "happily married with children.", "happily married with children and supportive parents and friends."};
+    string famSit;
+    famSit.append("They live ");
+    famSit.append(familyType[fnum - 1]);
+    famSit.append("\n");
+
+
+
+
+    return famSit;
+}
+
+
 int weighted_random() {
     // weights for the numbers 0-10
     std::vector<int> weights = { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 1 };
@@ -97,20 +111,16 @@ int main() {
 
     cout << person.getName() << " is an investigator to the church." << endl;
     if (person.getTimeSpent() > 0)
-        cout << "They have been having missionary visits for " << person.getTimeSpent() << " months.";
+        cout << "They have been having missionary visits for " << person.getTimeSpent() << " months." << endl;
     else
-        cout << "They have not yet met with the missionaries.";
-    if (person.getTimeSpent() >= 3) {
-        
-
-
-
-
-
-
-
+        cout << "They have not yet met with the missionaries." << endl;
+    if (person.getTimeSpent() <= 2)
+        cout << "We do not yet know " << person.getName() <<  "'s family situation." << endl;
+    else {
+        cout << familySituation(person.getFamSit());
     }
 
+        
 
     return 0;
 }
