@@ -28,6 +28,20 @@ string familySituation(int fnum) {
     return famSit;
 }
 
+int randomZeroTwo() {
+    return rand() % 3;
+}
+
+string healthSituation(int hnum) {
+    string healthType[4][3] = {
+        {"They recently were involved in an extreme car crash, and is in intensive care on life support.", "They are bedridden from sickness and likely to die soon.", "They were recently involved in a workplace accident and are now hospitalized and on life support."}, // immediately terminal injury or illness
+        {"They recently were diagnosed with advanced cancer.", "They recently were involved in a major car crash and are currently on life support.", "They have recently been diagnosed with a form of heart disease."}, // lifespan affecting injury or illness
+        {"They were involved in a workplace accident that left them blind.", "They are a veteran and have lost limbs.", "They have been diagnosed with having relatively early stages of cancer."}, // impairing injury or illness, not neccesarily life-threatening
+        {"They had a bad allergic reaction and are currently in the hospital.", "They were in a minor car accident and had some minor injuries.", "They were badly sick recently, and are now in recovery."} // bad sickness, things that someone could possibly recover from but could in some cases be dangerous
+    };
+    return healthType[hnum - 1][randomZeroTwo()];
+}
+
 
 int weighted_random() {
     // weights for the numbers 0-10
@@ -119,6 +133,16 @@ int main() {
     else {
         cout << familySituation(person.getFamSit());
     }
+    if (person.getHealth() <= 4) {
+        cout << healthSituation(person.getHealth());
+    }
+
+
+    // concern generator (the exciting part from the code perspective)
+
+
+
+
 
         
 
