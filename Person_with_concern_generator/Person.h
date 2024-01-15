@@ -13,17 +13,19 @@ private:
     std::string name;
     int famSit;
     int health;
+    int timeSpent;
     int skep;
     int finanSit;
 
 public:
     // Constructor
-    Person(std::string n, int f, int h, int s, int fi);
+    Person(std::string n, int f, int h, int t, int s, int fi);
 
     // Getters
     std::string getName() const;
     int getFamSit() const;
     int getHealth() const;
+    int getTimeSpent() const;
     int getSkep() const;
     int getFinanSit() const;
 
@@ -31,6 +33,7 @@ public:
     void setName(std::string n);
     void setFamSit(int f);
     void setHealth(int h);
+    void setTimeSpent(int t);
     void setSkep(int s);
     void setFinanSit(int fi);
 

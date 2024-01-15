@@ -61,13 +61,20 @@ int main() {
     fillNameArray(nameArray);
     std::string name = getRandomElement(nameArray);
     // Create a Person object
-    Person person(name, fillValues(),fillValues(), fillValues(), fillValues());
+    Person person(name, fillValues(), fillValues(), fillValues(), fillValues(), fillValues());
 
     // Display the information
-    std::cout << "Name: " << person.getName() << std::endl;
-    std::cout << "famSit: " << person.getFamSit() << std::endl;
-    std::cout << "skep: " << person.getSkep() << std::endl;
-    std::cout << "finanSit: " << person.getFinanSit() << std::endl;
+    //std::cout << "Name: " << person.getName() << std::endl;
+    //std::cout << "famSit: " << person.getFamSit() << std::endl;
+    //std::cout << "Health :" << person.getHealth() << std::endl;
+    //std::cout << "Time Spent:" << person.getTimeSpent() << std::endl;
+    //std::cout << "skep: " << person.getSkep() << std::endl;
+    //std::cout << "finanSit: " << person.getFinanSit() << std::endl;
+
+    cout << person.getName() << " is an investigator to the church.";
+
+
+
 
     return 0;
 }
