@@ -125,7 +125,12 @@ int main() {
     // Initialize random seed
     std::srand(std::time(0));
 
-    string concernList[4][10];
+    string concernList[4][10] = {
+        {" is wondering why marriage in the temple is so important."," is concerned that their late father did not get baptized, and is wondering about their salvation."," is wondering if the Church still practices polygamy."," is wondering if the Church accepts people of other cultures, sexualities and beliefs."," is wondering why the church prohibits premarital sex."," is concerned that their 2 year old child has not yet been baptized to a church."," is wondering what they have to do so that they can be married in the temple."," is wondering ","",""}, // family questions
+        {"","","","","","","","","",""}, // afterlife / word of wisdom questions
+        {"","","","","","","","","",""}, // money questions
+        {"","","","","","","","","",""}  // general belief questions
+    };
 
 
     std::string nameArray[100];
@@ -160,7 +165,7 @@ int main() {
     // concern generator (the exciting part from the code perspective)
     // it uses a weighted random based on the inverse of the Person values
 
-    cout << concernList[weighted_concerns(person.getFamSit(), person.getHealth(), person.getFinanSit(), person.getSkep())][fillValues()];
+    cout << person.getName() << concernList[weighted_concerns(person.getFamSit(), person.getHealth(), person.getFinanSit(), person.getSkep())][fillValues()];
 
 
         
