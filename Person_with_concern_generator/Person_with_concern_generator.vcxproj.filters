@@ -23,7 +23,7 @@
     <ClCompile Include="Person.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Generator.cpp">
+    <ClCompile Include="Person_With_Concern_Generator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
