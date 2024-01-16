@@ -15,6 +15,25 @@ int fillValues() {
     return std::rand() % 10 + 1;
 }
 
+int weighted_concerns(int f, int h, int finance, int s) {
+    // weights for the numbers 0-3
+    std::vector<int> weights = { 11 - f, 11 - h, 11 - finance, 11 - s};
+
+    // random device
+    std::random_device rd;
+
+    // generator
+    std::default_random_engine generator(rd());
+
+    // distribution
+    std::discrete_distribution<int> distribution(weights.begin(), weights.end());
+
+    // generate a random number
+    int number = distribution(generator);
+
+    return number;
+}
+
 string familySituation(int fnum) {
     string familyType[10] = {"as a single parent, after escaping a dangerous home situation, and the leaving of a spouse.", "as a single parent.","alone, and have been for many years.", "alone.", "with a spouse with some tension in the home.", "alone, but they are dating.", "married.", "happily married with no children.", "happily married with children.", "happily married with children and supportive parents and friends."};
     string famSit;
@@ -106,7 +125,7 @@ int main() {
     // Initialize random seed
     std::srand(std::time(0));
 
-    
+    string concernList[4][10];
 
 
     std::string nameArray[100];
@@ -139,9 +158,9 @@ int main() {
 
 
     // concern generator (the exciting part from the code perspective)
+    // it uses a weighted random based on the inverse of the Person values
 
-
-
+    cout << concernList[weighted_concerns(person.getFamSit(), person.getHealth(), person.getFinanSit(), person.getSkep())][fillValues()];
 
 
         
