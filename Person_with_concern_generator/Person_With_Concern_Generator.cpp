@@ -126,10 +126,10 @@ int main() {
     std::srand(std::time(0));
 
     string concernList[4][10] = {
-        {" is wondering why marriage in the temple is so important."," is concerned that their late father did not get baptized, and is wondering about their salvation."," is wondering if the Church still practices polygamy."," is wondering if the Church accepts people of other cultures, sexualities and beliefs."," is wondering why the church prohibits premarital sex."," is concerned that their 2 year old child has not yet been baptized to a church."," is wondering what they have to do so that they can be married in the temple."," is wondering ","",""}, // family questions
-        {"","","","","","","","","",""}, // afterlife / word of wisdom questions
-        {"","","","","","","","","",""}, // money questions
-        {"","","","","","","","","",""}  // general belief questions
+        {" is wondering why marriage in the temple is so important."," is concerned that their late father did not get baptized, and is wondering about their salvation."," is wondering if the Church still practices polygamy."," is wondering if the Church accepts people of other cultures, sexualities and beliefs."," is wondering why the church prohibits premarital sex."," is concerned that their young child has not yet been baptized to a church."," is wondering has to be done so that they can be married in the temple."," is having trouble understanding why little children don't need to be baptized."," is having trouble understanding why marriage is so important."," is having trouble figuring out how to help a relative through a tough loss of a family member."}, // family questions
+        {" is wondering why coffee and tea are against the Word of Wisdom."," is wondering why smoking and drinking are against the Word of Wisdom"," is wondering what the Word of Wisdom is, and why it is important."," is wondering why the Word of Wisdom is so important."," is having trouble understanding why eating healthy and exercising is so important."," is wondering what is going to happen to them when they die."," is concerned with what will happen if they die without being baptized."," is having trouble understanding what happens after this life in the plan of salvation."," is having trouble understanding why being a good person in this life is so important."," is wondering where they were before they were born."}, // afterlife / word of wisdom questions
+        {" is wondering why members have to pay tithing."," is wondering what tithing goes to."," is wondering why tithing is so important."," is wondering who decides how the tithing is used."," is wondering why tithing is ten percent."," is wondering why being a full tithe payer is one of the temple recommend questions."," is concerned that they may not be able to afford accessing the scriptures."," is wondering about addiction recovery services that the church offers, and what they can do to learn about them."," is unsure about how they will be able to stay self reliant in the future."," has no specific concern, but you notice that they may need financial help."}, // money questions
+        {" is wondering what the purpose of the Book of Mormon is."," is wondering why we need prophets and apostles."," is wondering why we require temple recommends to enter the temple."," is wondering if we pay the church leaders."," is wondering if we still use the Bible."," is concerned that previous sins may make them ineligible for baptism."," is having trouble understanding that we believe in the Godhead as 3 seperate beings."," is having trouble understanding that God has a body."," is concerned that their parents were not the most righteous people, and that they might be punished because of them."," is wondering if the church allows people of different races to be baptized and enter the temple."}  // general belief questions
     };
 
 
@@ -158,14 +158,14 @@ int main() {
         cout << familySituation(person.getFamSit());
     }
     if (person.getHealth() <= 4) {
-        cout << healthSituation(person.getHealth());
+        cout << healthSituation(person.getHealth()) << endl;
     }
 
 
     // concern generator (the exciting part from the code perspective)
     // it uses a weighted random based on the inverse of the Person values
 
-    cout << person.getName() << concernList[weighted_concerns(person.getFamSit(), person.getHealth(), person.getFinanSit(), person.getSkep())][fillValues()];
+    cout << person.getName() << concernList[weighted_concerns(person.getFamSit(), person.getHealth(), person.getFinanSit(), person.getSkep())][fillValues()] << endl;
 
 
         
